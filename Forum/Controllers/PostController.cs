@@ -7,9 +7,9 @@ namespace Forum.Controllers
 {
     public class PostController : Controller
     {
-        private PostService postService;
+        private IPostService postService;
 
-        public PostController(PostService postService)
+        public PostController(IPostService postService)
         {
             this.postService = postService;
         }
@@ -47,6 +47,22 @@ namespace Forum.Controllers
         public IActionResult Edit(int id, string content)
         {
             postService.Edit(id, content);
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            Post post = postService.GetById(id);
+
+            return View(post);
+        }
+
+        [HttpPost]
+        public IActionResult DeleteConfirm(int id)
+        {
+            postService.Delete(id);
 
             return RedirectToAction(nameof(Index));
         }

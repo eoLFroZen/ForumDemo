@@ -6,17 +6,24 @@ using System.Threading.Tasks;
 
 namespace Forum.Services
 {
-    public class PostService
+    public class PostService : IPostService
     {
+        private IData data;
+
+        public PostService(IData data)
+        {
+            this.data = data;
+        }
+
         public List<Post> GetAll()
         {
-            return Data.Posts;
+            return data.Posts;
         }
 
         public Post Create(string content)
         {
             Post post = new Post(content);
-            Data.Posts.Add(post);
+            data.Posts.Add(post);
 
             return post;
         }
@@ -28,10 +35,17 @@ namespace Forum.Services
 
             return post;
         }
+        public Post Delete(int id)
+        {
+            Post post = GetById(id);
+            data.Posts.Remove(post);
+
+            return post;
+        }
 
         public Post GetById(int id)
         {
-            return Data.Posts.FirstOrDefault(p => p.Id == id);
+            return data.Posts.FirstOrDefault(p => p.Id == id);
         }
     }
 }

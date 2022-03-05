@@ -25,7 +25,8 @@ namespace Forum
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddScoped<PostService>();
+            services.AddScoped<IPostService, PostService>();
+            services.AddSingleton<IData, Data>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

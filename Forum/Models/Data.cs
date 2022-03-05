@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Forum
 {
-    public static class Data
+    public class Data : IData
     {
-        public static List<Post> Posts { get; set; }
+        public List<Post> Posts { get; set; }
 
-        static Data()
+        public Data()
         {
-            Posts = new List<Post>()
+            this.Posts = new List<Post>()
             {
                 new Post("Some Content"),
                 new Post("More Content"),
