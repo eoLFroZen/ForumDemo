@@ -1,0 +1,23 @@
+﻿@model List<Post>
+
+<a asp-action="Create" asp-controller="Post">
+    <button type="button" class="btn btn-success">Create Post</button>
+</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Content</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var post in Model)
+        {
+            <tr>
+                <td>@post.Id</td>
+                <td>@post.Content</td>
+            </tr>
+        }
+    </tbody>
+</table>
