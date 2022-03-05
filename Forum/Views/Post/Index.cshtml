@@ -17,6 +17,14 @@
             <tr>
                 <td>@post.Id</td>
                 <td>@post.Content</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@post.Id">
+                        <button type="button" class="btn btn-warning">Edit</button>
+                    </a>
+                    <a asp-action="Delete">
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </a>
+                </td>
             </tr>
         }
     </tbody>

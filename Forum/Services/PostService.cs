@@ -16,12 +16,22 @@ namespace Forum.Services
         public Post Create(string content)
         {
             Post post = new Post(content);
-
             Data.Posts.Add(post);
 
             return post;
         }
 
-      
+        public Post Edit(int id, string content)
+        {
+            Post post = GetById(id);
+            post.Content = content;
+
+            return post;
+        }
+
+        public Post GetById(int id)
+        {
+            return Data.Posts.FirstOrDefault(p => p.Id == id);
+        }
     }
 }

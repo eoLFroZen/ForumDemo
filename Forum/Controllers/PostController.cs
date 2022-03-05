@@ -34,5 +34,21 @@ namespace Forum.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            Post post = postService.GetById(id);
+
+            return View(post);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(int id, string content)
+        {
+            postService.Edit(id, content);
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
