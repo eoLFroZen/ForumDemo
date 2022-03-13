@@ -27,6 +27,7 @@ namespace Forum
         {
             services.AddControllersWithViews();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IPostService, PostService>();
             services.AddSingleton<IData, Data>();
         }
 

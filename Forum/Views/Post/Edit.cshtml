@@ -1,0 +1,12 @@
+﻿@model Post
+
+    <form asp-action="Edit"  asp-route-id="@Model.Id">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Post</label>
+            <input type="text" class="form-control" name="content" placeholder="Post Content" value="@Model.Content">
+        </div>
+        <button type="submit" class="btn btn-primary">Edit</button>
+        <a asp-action="Index">
+            <button type="button" class="btn btn-secondary">Cancel</button>
+        </a>
+    </form>

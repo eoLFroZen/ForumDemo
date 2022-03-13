@@ -1,0 +1,12 @@
+﻿@model Post
+
+<form asp-action="DeleteConfirm" asp-route-id="@Model.Id">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Post</label>
+        <input type="text" class="form-control" value="@Model.Content" disabled>
+    </div>
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index">
+        <button type="button" class="btn btn-secondary">Cancel</button>
+    </a>
+</form>

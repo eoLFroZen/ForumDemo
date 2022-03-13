@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+using Forum.Models;
+using System.Collections.Generic;
 
-namespace Forum.Models
+namespace Forum
 {
     public interface IData
     {
+        List<Post> Posts { get; set; }
         List<User> Users { get; set; }
     }
 }
