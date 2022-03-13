@@ -1,3 +1,4 @@
+using Forum.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -24,6 +25,8 @@ namespace Forum
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddScoped<IPostService, PostService>();
+            services.AddSingleton<IData, Data>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
