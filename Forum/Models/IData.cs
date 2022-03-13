@@ -1,4 +1,4 @@
-﻿using Forum.Models;
+using Forum.Models;
 using System.Collections.Generic;
 
 namespace Forum
@@ -6,5 +6,6 @@ namespace Forum
     public interface IData
     {
         List<Post> Posts { get; set; }
+        List<User> Users { get; set; }
     }
 }

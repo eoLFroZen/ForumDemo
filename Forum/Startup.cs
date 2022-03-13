@@ -1,3 +1,4 @@
+using Forum.Models;
 using Forum.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -25,6 +26,7 @@ namespace Forum
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddScoped<IUserService, UserService>();
             services.AddScoped<IPostService, PostService>();
             services.AddSingleton<IData, Data>();
         }
